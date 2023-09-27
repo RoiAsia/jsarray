@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods Demo</title>
+    
+    <style>
+       body {
+            font-family: 'Urbanist', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* Changed background color to light gray */
+            color: #e0e0e0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #000080; /* Changed header background color to dark blue */
+            padding: 20px 0;
+            position: fixed; /* Position the header at the top of the viewport */
+            width: 100%; /* Make the header full width */
+        }
+
+        h1 {
+            color: #fff; /* Changed text color of the header to white */
+            text-shadow: 2px 2px 4px #000;
+            font-size: 36px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 120px);
+        }
+
+        .container {
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(206, 206, 206, 0.3);
+            max-width: 400px;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .cool-button {
+            background-color: #00aa00; /* Changed button color to green */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cool-button:hover {
+            background-color: #000000;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background-color: #222;
+            padding: 10px 0;
+        }
+
+        .nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .nav a {
+            font-weight: 600;
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 17px;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body style="background-image: url('cool-background.jpg'); background-size: cover; background-attachment: fixed;">
+
+    <header>
+        <h1>JavaScript Array Methods Demo</h1>
+    </header>
+
+    <main>
+        <div>
+            <label for="addElement" style="color: #000;">Add Element to Array:</label>
+            <input type="text" id="addElement" placeholder="Enter a value...">
+            <button onclick="addElement()" class="cool-button">Add</button>
+        </div>
+
+        <div class="container">
+            <p>Array Content: <span id="arrayContent"></span></p>
+            <p>Array Length: <span id="arrayLength"></span></p>
+            <p>Array as String: <span id="arrayString"></span></p>
+            <button onclick="clearArray()" class="cool-button">Clear Array</button>
+        </div>
+    </main>
+
+
+    <script>
+        const myArray = [];
+
+        function addElement() {
+            const elementToAdd = document.getElementById("addElement").value;
+            if (elementToAdd) {
+                myArray.push(elementToAdd);
+                updateDisplay();
+            }
+        }
+
+        function clearArray() {
+            myArray.length = 0;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById("arrayContent").textContent = myArray.join(', ');
+            document.getElementById("arrayLength").textContent = myArray.length;
+            document.getElementById("arrayString").textContent = myArray.toString();
+        }
+    </script>
+</body>
+</html>
